@@ -15,7 +15,7 @@ Item {
 
 	Plasmoid.compactRepresentation: CompactRepresentation {}
 	Plasmoid.fullRepresentation: FullRepresentation {}
-//   Plasmoid.preferredRepresentation: Plasmoid.compactRepresentation
+   //Plasmoid.preferredRepresentation: Plasmoid.compactRepresentation
 
 	function isConstrained() {
 		return (plasmoid.formFactor == PlasmaCore.Types.Vertical || plasmoid.formFactor == PlasmaCore.Types.Horizontal);

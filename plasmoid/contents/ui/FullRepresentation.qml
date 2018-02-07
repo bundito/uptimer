@@ -27,8 +27,10 @@ Item {
 	  	m = regex.exec(str);
 	  	console.log()
 
-	  	compactLabel.text = m[1];
-	  	    
+	  	if (m != null) {
+
+	  		compactLabel.text = m[1];
+	  	 }   
 		
 
 	
@@ -39,15 +41,15 @@ Item {
 
 	function update() {
 		uptimeData.connectedSources = 'uptime';
+		timer.interval = 1000 * 5;
 	}
 
 	Timer {
 		id: timer
-		interval: 1000 * 10
+		interval: 1000
 		running: true
 		repeat: true
 		onTriggered: update()
 
 	}
 }
-

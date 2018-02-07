@@ -7,9 +7,14 @@ import QtQml.Models 2.2
 
 Item {
 
+	width: 200
+	height: 200
+
+
 	Label {
 		id: compactLabel
 		text: "forever"
+		//Layout.alignment: Qt.AlignVCenter
 	}
 
 	PlasmaCore.DataSource {
@@ -19,13 +24,25 @@ Item {
 	  //connectedSources: ['/home/bundito/projects/xrx-output/plasmoid/contents/ui/parse-xrx-output.sh']
 	  onNewData: {
 	  	var output = data.stdout;
-	  	compactLabel.text = output;
+
+	  	const regex = /.*up\ (.*:..),\ .*/g;
+	  	const str = output;
+	  	var m;
+
+	  	m = regex.exec(str);
+	  	console.log()
+
+	  	if (m != null) {
+	  		compactLabel.text = m[1];
+	  	 }   
+
 	  	uptimeData.connectedSources = [];
 	  }
 	}
 
 	function update() {
 		uptimeData.connectedSources = 'uptime';
+		timer.interval = 1000 * 10;
 	}
 
 	Timer {
@@ -33,9 +50,7 @@ Item {
 		interval: 1000
 		running: true
 		repeat: true
-		onTriggered: updata()
+		onTriggered: update()
 
 	}
-
-
 }
