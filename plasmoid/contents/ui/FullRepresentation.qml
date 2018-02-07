@@ -19,21 +19,27 @@ Item {
 	  //connectedSources: ['/home/bundito/projects/xrx-output/plasmoid/contents/ui/parse-xrx-output.sh']
 	  onNewData: {
 	  	var output = data.stdout;
+	  	var regex;
 
-	  	const regex = /.*up\ (.*:..),\ .*/g;
-	  	const str = output;
-	  	var m;
+	  	var regex = /.*up\ (.*:..),\ .*/g;
+	  	var daysHoursMins;
+		daysHoursMins = regex.exec(output);
 
-	  	m = regex.exec(str);
-	  	console.log()
+		var regex = /.*up\ (.. min),\ .*/g;
+		var minsOnly;
+		minsOnly = regex.exec(output);
 
-	  	if (m != null) {
-
-	  		compactLabel.text = m[1];
-	  	 }   
-		
-
-	
+	  	if (daysHoursMins != null) {
+	  		compactLabel.text = daysHoursMins[1];
+	  	}	
+	  		
+	  	if (minsOnly != null) {
+	  		compactLabel.text = minsOnly[1];
+	  	}
+	  		// maybe up less than an hour
+	  	
+	  		
+	  
 	  	
 	  	uptimeData.connectedSources = [];
 	  }
@@ -41,12 +47,12 @@ Item {
 
 	function update() {
 		uptimeData.connectedSources = 'uptime';
-		timer.interval = 1000 * 5;
+		timer.interval = 500;
 	}
 
 	Timer {
 		id: timer
-		interval: 1000
+		interval: 500
 		running: true
 		repeat: true
 		onTriggered: update()
