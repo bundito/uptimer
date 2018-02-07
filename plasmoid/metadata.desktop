@@ -2,7 +2,7 @@
 Encoding=UTF-8
 Name=Uptimer
 Comment=System uptime for panel
-Icon=face-cool
+Icon=utilities-system-monitor
 Type=Service
 
 X-KDE-ParentApp=
