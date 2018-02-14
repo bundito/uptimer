@@ -5,17 +5,39 @@ import QtQuick.Controls 1.4
 import QtQuick.Layouts 1.1
 import QtQml.Models 2.2
 
-Item {
-
-	width: 200
-	height: 200
-
-
+Rectangle {
+	id: rect
+	height: parent.height
+	
+	
 	Label {
-		id: compactLabel
-		text: "forever"
-		//Layout.alignment: Qt.AlignVCenter
+		//Layout.minimumHeight: parent.height
+		id: fullLabel
+		text: "full"
+		verticalAlignment: Text.AlignVCenter
+		//anchors.horizontalCenter: rect.horizontalCenter
+        color: theme.textColor
+        height: rect.height
+        anchors.fill: parent
+       
+        //anchors.verticalCenter: parent.verticalCenter
+
 	}
+
+	PlasmaCore.DataSource {
+		id: tooltipData
+		engine: "executable"
+		connectedSources: []
+
+		onNewData {
+
+			
+		}
+
+
+
+	}
+
 
 	PlasmaCore.DataSource {
 		id: uptimeData
@@ -24,30 +46,40 @@ Item {
 	  //connectedSources: ['/home/bundito/projects/xrx-output/plasmoid/contents/ui/parse-xrx-output.sh']
 	  onNewData: {
 	  	var output = data.stdout;
+	  	var regex;
 
-	  	const regex = /.*up\ (.*:..),\ .*/g;
-	  	const str = output;
-	  	var m;
+	  	var regex = /.*up\ (.*:..),\ .*/g;
+	  	var daysHoursMins;
+		daysHoursMins = regex.exec(output);
 
-	  	m = regex.exec(str);
-	  	console.log()
+		var regex = /.*up\ (.. min),\ .*/g;
+		var minsOnly;
+		minsOnly = regex.exec(output);
 
-	  	if (m != null) {
-	  		compactLabel.text = m[1];
-	  	 }   
-
+	  	if (daysHoursMins != null) {
+	  		fullLabel.text = daysHoursMins[1];
+	  	}	
+	  		
+	  	if (minsOnly != null) {
+	  		fullLabel.text = minsOnly[1];
+	  	}
+	  		// maybe up less than an hour
+	  	
+	  		
+	  
+	  	
 	  	uptimeData.connectedSources = [];
 	  }
 	}
 
 	function update() {
 		uptimeData.connectedSources = 'uptime';
-		timer.interval = 1000 * 10;
+		timer.interval = 500;
 	}
 
 	Timer {
 		id: timer
-		interval: 1000
+		interval: 500
 		running: true
 		repeat: true
 		onTriggered: update()

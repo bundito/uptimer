@@ -11,10 +11,10 @@ Item {
 
 	id: main
 
-	Plasmoid.preferredRepresentation: isConstrained() ? Plasmoid.compactRepresentation : Plasmoid.fullRepresentation
+//	Plasmoid.preferredRepresentation: isConstrained() ? Plasmoid.compactRepresentation : Plasmoid.fullRepresentation
 
 	Plasmoid.compactRepresentation: CompactRepresentation {}
-	Plasmoid.fullRepresentation: FullRepresentation {}
+//	Plasmoid.fullRepresentation: FullRepresentation {}
    //Plasmoid.preferredRepresentation: Plasmoid.compactRepresentation
 
 	function isConstrained() {
