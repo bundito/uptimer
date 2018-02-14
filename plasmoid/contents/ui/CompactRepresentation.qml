@@ -8,6 +8,7 @@ import QtQml.Models 2.2
 Rectangle {
 	id: rect
 	height: parent.height
+	color: theme.backgroundColor
 	
 	
 	Label {
@@ -24,19 +25,19 @@ Rectangle {
 
 	}
 
-	PlasmaCore.DataSource {
-		id: tooltipData
-		engine: "executable"
-		connectedSources: []
-
-		onNewData {
-
-			
-		}
+	//PlasmaCore.DataSource {
+	//	id: tooltipData
+	//	engine: "executable"
+	//	connectedSources: []
+	//
+	//	onNewData {
 
 
+	//	}
 
-	}
+
+
+	//}
 
 
 	PlasmaCore.DataSource {
