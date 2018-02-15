@@ -10,6 +10,7 @@ Rectangle {
 	id: rect
 	height: parent.height
 	color: theme.backgroundColor
+	width: the.defaultFont.pixelSize * 6
 	
 	
 	Label {
