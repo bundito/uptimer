@@ -5,6 +5,7 @@ import QtQuick.Controls 1.4
 import QtQuick.Layouts 1.1
 import QtQml.Models 2.2
 
+
 Rectangle {
 	id: rect
 	height: parent.height
@@ -21,23 +22,7 @@ Rectangle {
         height: rect.height
         anchors.fill: parent
        
-        //anchors.verticalCenter: parent.verticalCenter
-
-	}
-
-	//PlasmaCore.DataSource {
-	//	id: tooltipData
-	//	engine: "executable"
-	//	connectedSources: []
-	//
-	//	onNewData {
-
-
-	//	}
-
-
-
-	//}
+		}
 
 
 	PlasmaCore.DataSource {
@@ -53,13 +38,27 @@ Rectangle {
 	  	var daysHoursMins;
 		daysHoursMins = regex.exec(output);
 
+		//console.log(daysHoursMins);
+
+		if (daysHoursMins != null) {
+			fullLabel.text = daysHoursMins[1];
+		}	
+
+		  	var regex = /.*up(.*min)/g;
+		  	var daysHoursMins;
+			daysHoursMins = regex.exec(output);
+
+			//console.log(daysHoursMins);
+
+			if (daysHoursMins != null) {
+				fullLabel.text = daysHoursMins[1];
+			}	
+
 		var regex = /.*up\ (.. min),\ .*/g;
 		var minsOnly;
 		minsOnly = regex.exec(output);
 
-	  	if (daysHoursMins != null) {
-	  		fullLabel.text = daysHoursMins[1];
-	  	}	
+	  
 	  		
 	  	if (minsOnly != null) {
 	  		fullLabel.text = minsOnly[1];
