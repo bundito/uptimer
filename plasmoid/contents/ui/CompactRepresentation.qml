@@ -32,6 +32,9 @@ Rectangle {
 		connectedSources: []
 	  //connectedSources: ['/home/bundito/projects/xrx-output/plasmoid/contents/ui/parse-xrx-output.sh']
 	  onNewData: {
+
+	  	var ucArrow = "\u2191 ";
+
 	  	var output = data.stdout;
 	  	var regex;
 
@@ -42,7 +45,7 @@ Rectangle {
 		//console.log(daysHoursMins);
 
 		if (daysHoursMins != null) {
-			fullLabel.text = daysHoursMins[1];
+			fullLabel.text = ucArrow + daysHoursMins[1];
 		}	
 
 		  	var regex = /.*up(.*min)/g;
@@ -52,7 +55,7 @@ Rectangle {
 			//console.log(daysHoursMins);
 
 			if (daysHoursMins != null) {
-				fullLabel.text = daysHoursMins[1];
+				fullLabel.text = ucArrow + daysHoursMins[1];
 			}	
 
 		var regex = /.*up\ (.. min),\ .*/g;
@@ -62,7 +65,7 @@ Rectangle {
 	  
 	  		
 	  	if (minsOnly != null) {
-	  		fullLabel.text = minsOnly[1];
+	  		fullLabel.text = ucArrow + minsOnly[1];
 	  	}
 	  		// maybe up less than an hour
 	  	
