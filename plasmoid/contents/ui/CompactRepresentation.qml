@@ -6,17 +6,19 @@ import QtQuick.Layouts 1.1
 import QtQml.Models 2.2
 
 
-Rectangle {
+Item {
 	id: rect
 	height: parent.height
-	color: theme.backgroundColor
-	width: the.defaultFont.pixelSize * 6
+	//color: theme.backgroundColor
+	Layout.minimumWidth: theme.defaultFont.pixelSize * 7
+
+
 	
 	
 	Label {
 		//Layout.minimumHeight: parent.height
 		id: fullLabel
-		text: "full"
+		text: ""
 		verticalAlignment: Text.AlignVCenter
 		//anchors.horizontalCenter: rect.horizontalCenter
         color: theme.textColor
