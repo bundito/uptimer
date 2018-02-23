@@ -1,3 +1,4 @@
+# uptimer #
 A simple, no-configuration plasmoid to show your system uptime. It's intended for a top or bottom panel. It doesn't do anything but show your uptime, which is why there's no configuration options. Click on it all you want, it still won't do anything except update minute by minute.
 
 To install, copy the entire "org.kde.uptimer" directory to your personal plasmoid directory:
