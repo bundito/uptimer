@@ -1,7 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
 Name=Uptimer
-Comment=System uptime for panel
+Comment=System uptime display
 Icon=cpu
 Type=Service
 
@@ -9,9 +9,9 @@ X-KDE-ParentApp=
 X-KDE-PluginInfo-Author=Dito
 X-KDE-PluginInfo-Email=bundito@gmail.com
 X-KDE-PluginInfo-License=GPL
-X-KDE-PluginInfo-Name=org.kde.uptimer
+X-KDE-PluginInfo-Name=com.bundito.uptimer
 X-KDE-PluginInfo-Version=2.0
-X-KDE-PluginInfo-Website=plasma.kde.org
+X-KDE-PluginInfo-Website=https://github.com/bundito/uptimer
 X-KDE-ServiceTypes=Plasma/Applet
 X-Plasma-API=declarativeappletscript
 X-Plasma-MainScript=ui/main.qml
