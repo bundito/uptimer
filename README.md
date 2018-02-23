@@ -7,7 +7,7 @@ To install, copy the entire "org.kde.uptimer" directory to your personal plasmoi
 
 and then issue the command
 
-    kpackagetool5 --install org.kde.uptimer
+    kpackagetool5 --install com.bundito.uptimer
 
 And the plasmoid will appear in your pane of available widgets. Again, the text is laid out only for horizontal panels. It's not fancy enough to be shown sideways. Although I should work on that.
 
